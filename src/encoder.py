@@ -30,7 +30,7 @@ def binary_encode(df):
         DataFrame: The binary encoded dataframe.
     """
     import category_encoders as ce
-    cols = ['damage_grade']
+    cols = ['damage_grade', 'ground_floor_type', 'land_surface_condition', 'foundation_type', 'roof_type', 'other_floor_type', 'position', 'plan_configuration', 'legal_ownership_status']
     encoder = ce.BinaryEncoder(cols=cols)
     binary_encoded = encoder.fit_transform(df)
     return binary_encoded

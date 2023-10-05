@@ -15,12 +15,10 @@ def clean(train_values, train_labels, test_values):
 
     # Clean train data
     train_values = merge_data(train_values, train_labels)
-    train_values = remove_non_numeric_columns(train_values)
     train_values = remove_geo_columns(train_values)
     train_values = drop_building_id_column(train_values)
 
     # Clean test data
-    test_values = remove_non_numeric_columns(test_values)
     test_values = remove_geo_columns(test_values)
     test_values = drop_building_id_column(test_values)
 
@@ -41,19 +39,6 @@ def merge_data(train_values, train_labels):
         DataFrame: The merged data and labels.
     """
     return pd.merge(train_values, train_labels, on='building_id')
-
-def remove_non_numeric_columns(data):
-    """
-    Remove non-numeric columns from the given data.
-
-    Args:
-        data (DataFrame): The data to remove non-numeric columns from.
-
-    Returns:
-        DataFrame: The data with non-numeric columns removed.
-    """
-    non_numeric_columns = ['land_surface_condition', 'foundation_type', 'roof_type', 'ground_floor_type', 'other_floor_type', 'position', 'plan_configuration', 'legal_ownership_status']
-    return data.drop(non_numeric_columns, axis=1)
 
 def remove_geo_columns(data):
     """
