@@ -5,7 +5,7 @@ import pandas as pd
 def import_data(directory="./Data"):
     # Import the data from the csv file
     # Read the data from the file
-    train_x = pd.read_csv(directory + "/test_values.csv")  # Read training data
+    train_x = pd.read_csv(directory + "/train_values.csv")  # Read training data
     train_y = pd.read_csv(directory + "/train_labels.csv")  # Read training labels
     test_x  = pd.read_csv(directory + "/test_values.csv")   # Read test data
 

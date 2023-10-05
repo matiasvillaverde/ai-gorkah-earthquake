@@ -1,14 +1,18 @@
 import pandas as pd
 
 def submit(model, test_values):
-    # Load the sample submission file
-    # submission = pd.read_csv("../Data/submission_format.csv")
 
-    # # Make a prediction
-    # predictions = model.predict(test_values)
+    # Create a data frame with the predictions
+    predictions = pd.DataFrame(predictions, columns=['damage_grade_0', 'damage_grade_1'])
 
-    # # Save the prediction in the submission file
-    # submission.iloc[:, 1:] = predictions
-    # submission.to_csv("submission.csv", index=False)
+    # Add the building_id column to the data frame
+    predictions['building_id'] = test_data['building_id']
+
+    # Reorder the columns of the data frame
+    predictions = predictions[['building_id', 'damage_grade_0', 'damage_grade_1']]
+
+    # Save the data frame to a csv file
+    predictions.to_csv('../Data/predictions.csv', index=False)
 
     print("Submission saved")
+
