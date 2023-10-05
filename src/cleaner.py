@@ -16,16 +16,16 @@ def clean(train_values, train_labels, test_values):
 
     # Clean train data
     train_values = merge_data(train_values, train_labels)
-    train_values = remove_geo_columns(train_values)
-    train_values = drop_building_id_column(train_values)
+    ##train_values = remove_geo_columns(train_values)
+    #train_values = drop_building_id_column(train_values)
 
     # Clean test data
-    test_values = remove_geo_columns(test_values)
-    test_values = drop_building_id_column(test_values)
+    #test_values = remove_geo_columns(test_values)
+    #test_values = drop_building_id_column(test_values)
 
     # Add damage_grade column with default value 0 because there is no
     # damage_grade column in the test data
-    test_values = add_damage_grade_column(test_values)
+    #test_values = add_damage_grade_column(test_values)
 
     return (train_values, test_values)
 
