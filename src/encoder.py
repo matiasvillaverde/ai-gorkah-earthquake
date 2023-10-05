@@ -1,6 +1,7 @@
 import numpy as np
 import pandas as pd
 
+
 def encode(train_values, test_values):
     """
     Encode the train and test data using binary encoding.
@@ -19,6 +20,7 @@ def encode(train_values, test_values):
 
     return (train_values, test_values)
 
+
 def binary_encode(df):
     """
     Binary encode the given dataframe.
@@ -30,7 +32,16 @@ def binary_encode(df):
         DataFrame: The binary encoded dataframe.
     """
     import category_encoders as ce
-    cols = ['damage_grade', 'ground_floor_type', 'land_surface_condition', 'foundation_type', 'roof_type', 'other_floor_type', 'position', 'plan_configuration', 'legal_ownership_status']
+    cols = [
+        'damage_grade',
+        'ground_floor_type',
+        'land_surface_condition',
+        'foundation_type',
+        'roof_type',
+        'other_floor_type',
+        'position',
+        'plan_configuration',
+        'legal_ownership_status']
     encoder = ce.BinaryEncoder(cols=cols)
     binary_encoded = encoder.fit_transform(df)
     return binary_encoded

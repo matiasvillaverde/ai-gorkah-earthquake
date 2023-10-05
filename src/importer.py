@@ -1,6 +1,7 @@
 import os
 import pandas as pd
 
+
 def import_data(directory="./Data"):
     """
     Import the data from CSV files and return them as tuples.
@@ -17,9 +18,12 @@ def import_data(directory="./Data"):
     test_x_path = os.path.join(directory, "test_values.csv")
 
     # Read the data from the CSV files
-    train_x, train_y, test_x = [pd.read_csv(file_path) for file_path in [train_x_path, train_y_path, test_x_path]]
+    train_x, train_y, test_x = [
+        pd.read_csv(file_path) for file_path in [
+            train_x_path, train_y_path, test_x_path]]
 
     return train_x, train_y, test_x
+
 
 def main():
     # Import the data
@@ -29,6 +33,7 @@ def main():
     print(train_x)
     print(train_y)
     print(test_x)
+
 
 if __name__ == "__main__":
     main()

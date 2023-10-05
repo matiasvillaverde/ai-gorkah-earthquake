@@ -3,6 +3,7 @@ from tensorflow.keras.models import Model
 from sklearn.ensemble import RandomForestClassifier
 import pandas as pd
 
+
 def neural_network(geo1_shape, geo2_shape, geo3_shape):
     """
     Create a neural network model.
@@ -38,6 +39,8 @@ def random_forest(train_values):
     # Create a random forest classifier
     rf = RandomForestClassifier(n_estimators=100, max_depth=10, random_state=0)
 
-    # Fit the model to predict the damage_grade_0 and damage_grade_1 columns of the train data set
-    rf.fit(train_values.drop(['damage_grade_0', 'damage_grade_1'], axis=1), train_values[['damage_grade_0', 'damage_grade_1']])
+    # Fit the model to predict the damage_grade_0 and damage_grade_1 columns
+    # of the train data set
+    rf.fit(train_values.drop(['damage_grade_0', 'damage_grade_1'],
+           axis=1), train_values[['damage_grade_0', 'damage_grade_1']])
     return rf
