@@ -1,27 +1,19 @@
 import numpy as np
 import pandas as pd
-from sklearn.metrics import f1_score
+from sklearn.metrics import accuracy_score, f1_score
 
+def evaluate(model, X_val, y_val): 
+    #set y_val to start from 0 bc softmax likes it that way
+    y_val = y_val - 1
 
-def print_model_summary(model, test_data):
-    """
-    Print the model summary and return the predictions.
+    # Predict on the test data (X_test)
+    y_pred = model.predict(X_val)
 
-    Args:
-        model: The trained model.
-        test_data: The test data.
+    # Calculate the accuracy
+    accuracy = accuracy_score(y_val, y_pred)
 
-    Returns:
-        ndarray: The predictions made by the model.
-    """
-    # Predict the damage_grade_0 and damage_grade_1 columns of the test data
-    # set
-    predictions = model.predict(test_data.drop(
-        ['damage_grade_0', 'damage_grade_1'], axis=1))
+    # Calculate the micro F1 score
+    micro_f1 = f1_score(y_val, y_pred, average='micro')
 
-    # Measure the F Score of the model
-    f_score = f1_score(
-        test_data[['damage_grade_0', 'damage_grade_1']], predictions, average='weighted')
-    print("F-Score: ", f_score)
+    return accuracy, micro_f1
 
-    return predictions
