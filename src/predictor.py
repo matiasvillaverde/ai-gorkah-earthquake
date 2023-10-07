@@ -5,11 +5,20 @@ def predict(trained_model, new_data):
     Make predictions on a new dataset using a trained XGBoost classifier.
 
     Args:
-        trained_model: Trained XGBoost classifier
-        new_data: New dataset for prediction
+        trained_model (XGBoost classifier): The trained XGBoost classifier.
+        new_data (DataFrame): The new dataset for prediction.
 
     Returns:
-        predictions_df: DataFrame with 'building_id' and 'predictions'
+        DataFrame: A DataFrame with 'building_id' and 'predictions'.
+
+    Example:
+        >>> trained_model = XGBClassifier()
+        >>> new_data = pd.DataFrame({'feature1': [1, 2, 3], 'feature2': [4, 5, 6]})
+        >>> predict(trained_model, new_data)
+           building_id  damage_grade
+        0             1             2
+        1             2             3
+        2             3             1
     """
     
     # Create a copy of the new_data DataFrame to avoid modifying the original DataFrame

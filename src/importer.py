@@ -1,5 +1,5 @@
-import os
 import pandas as pd
+from pathlib import Path
 
 
 def import_data(directory="./Data"):
@@ -13,27 +13,13 @@ def import_data(directory="./Data"):
         tuple: A tuple containing the train_x, train_y, and test_x dataframes.
     """
     # File paths
-    train_x_path = os.path.join(directory, "train_values.csv")
-    train_y_path = os.path.join(directory, "train_labels.csv")
-    test_x_path = os.path.join(directory, "test_values.csv")
+    file_names = ["train_values.csv", "train_labels.csv", "test_values.csv"]
+    file_paths = [Path(directory) / file_name for file_name in file_names]
 
     # Read the data from the CSV files
-    train_x, train_y, test_x = [
-        pd.read_csv(file_path) for file_path in [
-            train_x_path, train_y_path, test_x_path]]
+    data_frames = [pd.read_csv(file_path) for file_path in file_paths]
+
+    # Assign the data frames to variables
+    train_x, train_y, test_x = data_frames
 
     return train_x, train_y, test_x
-
-
-def main():
-    # Import the data
-    train_x, train_y, test_x = import_data()
-
-    # Print the data
-    print(train_x)
-    print(train_y)
-    print(test_x)
-
-
-if __name__ == "__main__":
-    main()
