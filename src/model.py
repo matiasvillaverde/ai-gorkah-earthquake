@@ -1,18 +1,18 @@
-
 def XGBoost(X_train, y_train):
     """
     Create a XGBoost classifier and fit it to the train data.
 
     Args:
-        training data set
+        X_train (array-like): The training set of predictor variables.
+        y_train (array-like): The training set of target variable.
 
     Returns:
-        classifier
+        xgb.XGBClassifier: The trained XGBoost classifier.
     """
 
     import xgboost as xgb
 
-    #change categories of y to start from 0 bc softmax likes it that way
+    # Change categories of y to start from 0 because softmax likes it that way
     y_train = y_train - 1
 
     # Define the hyperparameters

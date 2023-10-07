@@ -1,4 +1,4 @@
 models/
 src/__pycache__/
 notebooks/__pycache__/
-Submissions/
+Submissions/*.csv

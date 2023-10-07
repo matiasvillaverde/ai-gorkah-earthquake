@@ -1,3 +1,7 @@
 pandas
 numpy
 tensorflow
+category_encoders
+sklearn
+xgboost
+optuna

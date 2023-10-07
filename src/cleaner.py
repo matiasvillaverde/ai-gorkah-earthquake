@@ -47,6 +47,3 @@ def drop_building_id_column(data):
         DataFrame: The data with the building_id column dropped.
     """
     return data.drop('building_id', axis=1)
-
-
-
