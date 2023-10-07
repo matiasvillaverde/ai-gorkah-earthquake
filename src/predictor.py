@@ -1,5 +1,6 @@
 import pandas as pd
 
+
 def predict(trained_model, new_data):
     """
     Make predictions on a new dataset using a trained XGBoost classifier.
@@ -20,11 +21,13 @@ def predict(trained_model, new_data):
         1             2             3
         2             3             1
     """
-    
-    # Create a copy of the new_data DataFrame to avoid modifying the original DataFrame
+
+    # Create a copy of the new_data DataFrame to avoid modifying the original
+    # DataFrame
     new_data_copy = new_data.copy()
 
-    # Remove the 'building_id' column if present in the new data (assuming it's not needed for prediction)
+    # Remove the 'building_id' column if present in the new data (assuming
+    # it's not needed for prediction)
     if 'building_id' in new_data_copy.columns:
         new_data_copy = new_data_copy.drop(['building_id'], axis=1)
 
@@ -35,6 +38,7 @@ def predict(trained_model, new_data):
     predictions = predictions + 1
 
     # Create a DataFrame with 'building_id' and 'predictions'
-    predictions_df = pd.DataFrame({'building_id': new_data['building_id'], 'damage_grade': predictions})
+    predictions_df = pd.DataFrame(
+        {'building_id': new_data['building_id'], 'damage_grade': predictions})
 
     return predictions_df

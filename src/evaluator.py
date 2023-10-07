@@ -2,7 +2,8 @@ import numpy as np
 import pandas as pd
 from sklearn.metrics import accuracy_score, f1_score
 
-def evaluate(model, X_val, y_val): 
+
+def evaluate(model, X_val, y_val):
     """
     Evaluate the performance of a model on validation data.
 

@@ -1,6 +1,12 @@
 from sklearn.preprocessing import StandardScaler
 
-columns = ['count_floors_pre_eq', 'age', 'area_percentage', 'height_percentage', 'count_families']
+columns = [
+    'count_floors_pre_eq',
+    'age',
+    'area_percentage',
+    'height_percentage',
+    'count_families']
+
 
 def normalize(df_train, df_test, col=columns):
     """

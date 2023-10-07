@@ -1,5 +1,6 @@
 import category_encoders as ce
 
+
 def create_encoder(df):
     """
     Create a binary encoder for the given dataframe.
@@ -11,9 +12,18 @@ def create_encoder(df):
     encoder (category_encoders.BinaryEncoder): The fitted binary encoder.
     """
 
-    cols = ['ground_floor_type', 'land_surface_condition', 'foundation_type', 'roof_type', 
-            'other_floor_type', 'position', 'plan_configuration', 'legal_ownership_status', 
-            'geo_level_1_id', 'geo_level_2_id', 'geo_level_3_id']
+    cols = [
+        'ground_floor_type',
+        'land_surface_condition',
+        'foundation_type',
+        'roof_type',
+        'other_floor_type',
+        'position',
+        'plan_configuration',
+        'legal_ownership_status',
+        'geo_level_1_id',
+        'geo_level_2_id',
+        'geo_level_3_id']
 
     encoder = ce.BinaryEncoder(cols=cols)
     encoder.fit(df)
