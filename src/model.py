@@ -17,11 +17,11 @@ def XGBoost(X_train, y_train):
 
     # Define the hyperparameters
     hyperparameters = {
-        'n_estimators': 535,
-        'max_depth': 10,
-        'learning_rate': 0.051232294238614126,
-        'subsample': 0.6796645277288101,
-        'colsample_bytree': 0.7886065868653529,
+        'n_estimators': 1000, 
+        'max_depth': 10, 
+        'learning_rate': 0.03428839361332356, 
+        'subsample': 0.7846790551755336, 
+        'colsample_bytree': 0.86244395361441,
         'objective': 'multi:softmax',  # Specify multi-class classification objective
         'num_class': 3  # Number of classes in your multi-class problem
     }
